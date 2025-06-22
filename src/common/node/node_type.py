@@ -8,4 +8,5 @@ class NodeType(Enum):
   BOOLEAN = 'bool'
   BOOLEAN = 'null'
   ASSIGNMENT = 'assignment'
+  BODY = 'body'
   PARENT_JSON = 'parent'

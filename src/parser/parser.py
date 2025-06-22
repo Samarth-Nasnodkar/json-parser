@@ -56,7 +56,6 @@ class Parser:
       if err:
         return None, err
       
-      self.advance()
       parent_node.children.append(node)
       if self.current_token is None or self.current_token.type != TokenType.RBRACE:
         return None, Exception("Invalid token")
@@ -64,6 +63,22 @@ class Parser:
       return parent_node
     
     return None, Exception("Invalid token")
+
+  def parse_body(self) -> Tuple[Node, Exception]:
+    body_node = Node(NodeType.BODY, None, [])
+    while self.current_token is not None:
+      node, err = self.parse_line()
+      if err:
+        return None, err
+      
+      body_node.children.append(node)
+      self.advance()
+
+      if self.current_token is None or self.current_token.type != TokenType.COMMA:
+        break
+      self.advance()
+    
+    return body_node
 
 
   def parse_atom(self) -> Tuple[Node, Exception]:
