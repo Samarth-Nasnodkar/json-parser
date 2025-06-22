@@ -6,7 +6,7 @@ class NodeType(Enum):
   STRING = 'str'
   LIST = 'list'
   BOOLEAN = 'bool'
-  BOOLEAN = 'null'
+  NULL = 'null'
   ASSIGNMENT = 'assignment'
   BODY = 'body'
   PARENT_JSON = 'parent'

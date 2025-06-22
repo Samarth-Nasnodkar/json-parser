@@ -25,7 +25,7 @@ class Token:
   
   @staticmethod
   def create_number(value):
-    return Token(TokenType.NUMBER, value)
+    return Token(TokenType. NUMBER, value)
   
   @staticmethod
   def create_null():
